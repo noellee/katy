@@ -1,12 +1,12 @@
 dist: xenial
 language: python
 python:
-    - 3.5
-    - 3.6
-    - 3.7
+  - 3.5
+  - 3.6
+  - 3.7
 before_install:
-    - 'pip install pipenv'
+  - 'pip install pipenv'
 install:
-    - 'pipenv sync --dev --keep-outdated'
+  - 'pipenv sync --dev --keep-outdated'
 script:
-    - 'tox'
+  - 'tox'
