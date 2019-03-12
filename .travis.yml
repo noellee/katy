@@ -8,3 +8,5 @@ before_install:
     - 'pip install pipenv'
 install:
     - 'pipenv sync --dev --keep-outdated'
+script:
+    - 'tox'
