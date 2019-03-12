@@ -7,7 +7,7 @@ Can't possibly revise without a tool to help you download all notes, amirite?
 
 Katy provides a suite (more like 2 now) command line tools to make your life
 easier (only on CaTE though - life is _hard_). It performs repetitive tasks for
-you so you can be even more lazy you already are!
+you so you can be even more lazy you than already are!
 
 For detailed instructions and information on how to use a specific script, do:
 
