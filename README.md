@@ -1,4 +1,4 @@
-# Katy - *Make CaTE Great Again*
+# Katy - *Make CATe Great Again*
 
 I should be revising for exams but instead I made this ¯\\\_(ツ)\_/¯.
 Can't possibly revise without a tool to help you download all notes, amirite?
@@ -6,7 +6,7 @@ Can't possibly revise without a tool to help you download all notes, amirite?
 ## Command Line tools
 
 Katy provides a suite (more like 2 now) command line tools to make your life
-easier (only on CaTE though - life is _hard_). It performs repetitive tasks for
+easier (only on CATe though - life is _hard_). It performs repetitive tasks for
 you so you can be even more lazy you than already are!
 
 For detailed instructions and information on how to use a specific script, do:
@@ -19,7 +19,7 @@ The follow are some common use cases of the scripts.
 
 #### Downloading all notes from a course
 
-Copy the CaTE url to the notes page of the module you want to download. It
+Copy the CATe url to the notes page of the module you want to download. It
 should look something like
 `https://cate.doc.ic.ac.uk/notes.cgi?key=[colon separated params]`. This url
 will be needed to download notes using `cate_download.py`. In the examples

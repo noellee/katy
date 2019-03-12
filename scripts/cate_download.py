@@ -239,13 +239,13 @@ class ChainRanges(argparse.Action):
 def is_cate_url(value):
     url = urlparse(value)
     if not url.netloc == 'cate.doc.ic.ac.uk':
-        msg = '{} is not a CaTE URL'.format(value)
+        msg = '{} is not a CATe URL'.format(value)
         raise argparse.ArgumentTypeError(msg)
 
     query = parse_qs(url.query)
     key = query.get('key', None)
     if key is None:
-        msg = '{} is not a CaTE URL'.format(value)
+        msg = '{} is not a CATe URL'.format(value)
         raise argparse.ArgumentTypeError(msg)
 
     return url.geturl()
@@ -254,7 +254,7 @@ def is_cate_url(value):
 if __name__ == '__main__':
     parser = argparse.ArgumentParser(
         description=textwrap.dedent('''
-            Tired of downloading notes from CaTE by hand???
+            Tired of downloading notes from CATe by hand???
             This is what you need. Just copy the URL of your notes page!
 
             To download one single notes file (e.g. numbered 10), run:
