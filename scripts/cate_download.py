@@ -13,7 +13,7 @@ from argparse import RawDescriptionHelpFormatter
 from collections import OrderedDict
 from typing import Callable, Tuple
 from urllib.parse import parse_qs, urlparse
-from bs4 import BeautifulSoup  # type: ignore
+from bs4 import BeautifulSoup
 from PyPDF2 import PdfFileMerger
 
 CATE_HOST = 'https://cate.doc.ic.ac.uk/'
