@@ -18,7 +18,7 @@ For detailed instructions and information on how to use a specific script, do:
 $ [script name].py --help
 ```
 
-The follow are some common use cases of the scripts.
+The following are some common use cases of the scripts.
 
 #### Downloading all notes from a course
 
