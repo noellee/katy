@@ -5,6 +5,8 @@ import requests
 from typing import Tuple
 from bs4 import BeautifulSoup
 
+__all__ = ['CateSession', 'Notes']
+
 CATE_HOST = 'https://cate.doc.ic.ac.uk/'
 
 
