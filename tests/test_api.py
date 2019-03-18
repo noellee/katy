@@ -21,7 +21,8 @@ def test_notes_format(notes):
     assert notes.format('{course_id}') == notes.course_id
     assert notes.format('{course_name}') == notes.course_name
     assert notes.format('example') == 'example'
-    # assert notes.format(r'{not_exist}') == '{not_exist}'
+    with pytest.raises(KeyError):
+        assert notes.format(r'{not_exist}') == '{not_exist}'
 
 
 def test_cate_auth():
