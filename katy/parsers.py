@@ -57,7 +57,9 @@ class TimetableParser:
     def _parse_course(course_id_elem: Tag):
         course_id = course_id_elem.get_text()
         course_name = str(course_id_elem.next_sibling).replace(' - ', '')
-        return Course(id=course_id, name=course_name)
+        # todo: support all levels
+        level = 3 if 'style' in course_id_elem.find_parent('td').attrs else 1
+        return Course(id=course_id, name=course_name, level=level)
 
     @staticmethod
     def _parse_title(page: Tag) -> (str, int, int):

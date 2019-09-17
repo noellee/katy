@@ -5,3 +5,4 @@ from dataclasses import dataclass
 class Course:
     id: str
     name: str
+    level: int
