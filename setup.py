@@ -12,6 +12,7 @@ setup(
         'requests',
         'beautifulsoup4',
         'pypdf2',
+        'icalendar',
     ],
     scripts=[
         'scripts/cate_download.py',

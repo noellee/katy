@@ -9,6 +9,7 @@ tox = "*"
 [packages]
 requests = "*"
 beautifulsoup4 = "*"
+icalendar = "*"
 pypdf2 = "*"
 
 [requires]
