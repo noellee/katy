@@ -25,9 +25,9 @@ def user_prompt(prompt: str, input_func: Callable[[str], str] = input) -> str:
 
 
 class InteractiveCateSession(CateSession):
-    def __init__(self, username: str, use_cache=True):
+    def __init__(self, username: str):
         self.password_is_set = False
-        super().__init__(username, '', use_cache)  # placeholder password
+        super().__init__(username, '')  # placeholder password
 
     def request_auth(self):
         prompt = 'Password for [{}]: '.format(self.username)
@@ -55,9 +55,9 @@ def user_proceed(assume_yes=False):
     return answer == 'Y'
 
 
-def main(url, username, notes_range, output_dir, use_cache=True,
-         format=None, merge_file=None, assume_yes=False):
-    cate = InteractiveCateSession(username, use_cache)
+def main(url, username, notes_range, output_dir, format=None,
+         merge_file=None, assume_yes=False):
+    cate = InteractiveCateSession(username)
     notes = Notes.get_notes_from_url(cate, url)
     selected = list(notes_range)
     print('The following marked with a (*) will be downloaded:')
@@ -191,8 +191,6 @@ if __name__ == '__main__':
                         ''')
     parser.add_argument('-o', '--output',
                         help='folder to save the downloaded and merged files')
-    parser.add_argument('--no-cache', dest='use_cache', action='store_false',
-                        help='do not use cached pages')
     parser.add_argument('-y', '--yes', action='store_true',
                         help='automatic yes to prompts')
     parser.add_argument('-f', '--format',
@@ -201,5 +199,5 @@ if __name__ == '__main__':
                         help='merge the downloaded pdfs into one single pdf')
     args = parser.parse_args()
     username = args.url.split(':')[-1]
-    main(args.url, username, args.range, args.output, args.use_cache,
-         args.format, args.merge_file, args.yes)
+    main(args.url, username, args.range, args.output, args.format,
+         args.merge_file, args.yes)

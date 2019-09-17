@@ -1,5 +1,4 @@
 import os
-import pickle
 import re
 import requests
 from typing import Tuple
@@ -11,10 +10,9 @@ CATE_HOST = 'https://cate.doc.ic.ac.uk/'
 
 
 class CateSession:
-    def __init__(self, username: str, password: str, use_cache=True):
+    def __init__(self, username: str, password: str):
         self.username = username
         self.password = password
-        self.use_cache = use_cache
 
     @property
     def auth(self) -> Tuple[str, str]:
@@ -25,14 +23,7 @@ class CateSession:
         return resp.status_code != requests.codes['unauthorized']
 
     def load_page(self, url) -> str:
-        if self.use_cache and os.path.exists('temp_page.pickle'):
-            with open('temp_page.pickle', 'rb') as f:
-                response = pickle.load(f)
-        else:
-            response = requests.get(url, auth=self.auth)
-            with open('temp_page.pickle', 'wb') as f:
-                pickle.dump(response, f)
-
+        response = requests.get(url, auth=self.auth)
         return response.text
 
     def download(self, url, dest):
