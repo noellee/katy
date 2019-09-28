@@ -16,6 +16,14 @@ class DateRows:
             self.day_row,
         ] = table_elem.find_all('tr', limit=3)
 
+    @staticmethod
+    def _normalize_month(month):
+        """
+        :param month: 1-based month (i.e. 1 is January)
+        :return: int in the range 1-12
+        """
+        return (month - 1) % 12 + 1
+
     def get_month_by_index(self, index: int) -> int:
         month_th = self.month_row.find('th', bgcolor='white')
         colspan = int(month_th.get('colspan', '1'))
@@ -23,8 +31,17 @@ class DateRows:
             index -= colspan
             month_th = month_th.find_next_sibling('th')
             colspan = int(month_th.get('colspan', '1'))
+
         month_str = month_th.get_text(strip=True)
-        return datetime.strptime(month_str, '%B').month
+
+        try:
+            return datetime.strptime(month_str, '%B').month
+        except ValueError:
+            if index - colspan < 0:
+                m = self.get_month_by_index(index + colspan) - 1
+            else:
+                m = self.get_month_by_index(index - colspan - 1) + 1
+            return DateRows._normalize_month(m)
 
     def get_date_by_index(self, index: int, start_year: int, end_year: int) -> datetime:
         initial_index = index
