@@ -1,5 +1,5 @@
 import re
-from datetime import timedelta, datetime
+from datetime import timedelta, datetime, date
 
 from bs4 import Tag
 
@@ -43,7 +43,7 @@ class DateRows:
                 m = self.get_month_by_index(index - colspan - 1) + 1
             return DateRows._normalize_month(m)
 
-    def get_date_by_index(self, index: int, start_year: int, end_year: int) -> datetime:
+    def get_date_by_index(self, index: int, start_year: int, end_year: int) -> date:
         initial_index = index
 
         day_th: Tag = next(self.day_row.children)
@@ -61,7 +61,7 @@ class DateRows:
 
         year = end_year if month <= 7 else start_year
 
-        return datetime(year=year, month=month, day=day)
+        return date(year=year, month=month, day=day)
 
 
 class TimetableParser:

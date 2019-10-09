@@ -1,5 +1,5 @@
 from dataclasses import dataclass
-from datetime import datetime
+from datetime import date
 from enum import Enum
 
 
@@ -25,5 +25,5 @@ class Exercise:
     title: str
     type: str
     submission_type: SubmissionType
-    start: datetime
-    end: datetime
+    start: date
+    end: date
